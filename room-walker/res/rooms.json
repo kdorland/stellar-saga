@@ -1,0 +1,38 @@
+[
+    {
+        "id": 0,
+        "name": "Den Hemmelighedsfulde Indgang",
+        "description": "Du står foran en gammel, vinovergroet port. En svag hvisken fylder luften, som om væggene selv deler ældgamle hemmeligheder. To stier bryder ud fra denne mystiske begyndelse; den ene snoer sig ind i en tæt tåge, mens den anden fører til en knirkende trædør.",
+        "exit_room_ids": [1, 2]
+    },
+    {
+        "id": 1,
+        "name": "De Glemte Haller",
+        "description": "Lys flakker fra væggene i dette store, støvede rum. Rustninger og våben fra en svunden tid pryder hallen, og hver fodtrin ekkoer blandt skyggerne. Der er udgange, der skjuler sig bag faldne tårne og hemmelige korridorer.",
+        "exit_room_ids": [0, 2, 3]
+    },
+    {
+        "id": 2,
+        "name": "Den Forheksede Have",
+        "description": "En explosion af farver møder dine øjne i denne overnaturlige have. Blomster, der lyser i mørket, og træer, der hvisker i vinden, skaber en følelse af både ærefrygt og uro. En sti fører tilbage til fortiden, mens en anden lokker dig dybere ind i det ukendte.",
+        "exit_room_ids": [1, 0, 4]
+    },
+    {
+        "id": 3,
+        "name": "Spejlkabinettet",
+        "description": "Væggene her er dækket af spejle, der ikke kun reflekterer din egen skikkelse, men også skjulte døre og måske endda glimt af fremtiden. Lyset danser på en uforudsigelig måde, hvilket gør det svært at skelne mellem, hvad der er virkeligt, og hvad der er illusion.",
+        "exit_room_ids": [1, 5]
+    },
+    {
+        "id": 4,
+        "name": "Den Dybe Krypt",
+        "description": "Kulde kryber op langs din ryg, da du træder ind i denne underjordiske krypt. Lyden af dine egne skridt blandes med den fjerne lyd af kæder, der klirrer. Dette er et sted af langglemte hemmeligheder og begravne skatte, men pas på, for ikke alt ønsker at blive fundet.",
+        "exit_room_ids": [2]
+    },
+    {
+        "id": 5,
+        "name": "Tårnets Top",
+        "description": "Efter en lang og trættende bestigning, belønnes du med en betagende udsigt fra toppen af tårnet. Horisonten strækker sig i alle retninger, og fra dette udsigtspunkt kan du se både begyndelsen af din rejse og måske enden. Valget af din næste destination ligger tungt på dine skuldre.",
+        "exit_room_ids": [3]
+    }
+]
