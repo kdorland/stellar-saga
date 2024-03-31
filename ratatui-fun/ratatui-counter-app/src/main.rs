@@ -1,4 +1,3 @@
-// ANCHOR: imports
 use std::io;
 
 use crossterm::event::{self, Event, KeyCode, KeyEvent, KeyEventKind};
@@ -7,33 +6,24 @@ use ratatui::{
     symbols::border,
     widgets::{block::*, *},
 };
-// ANCHOR_END: imports
 
-// ANCHOR: modules
 mod tui;
-// ANCHOR_END: modules
 
-// ANCHOR: main
 fn main() -> io::Result<()> {
     let mut terminal = tui::init()?;
     let app_result = App::default().run(&mut terminal);
     tui::restore()?;
     app_result
 }
-// ANCHOR_END: main
 
-// ANCHOR: app
 #[derive(Debug, Default)]
 pub struct App {
     counter: u8,
     exit: bool,
 }
-// ANCHOR_END: app
 
-// ANCHOR: impl App
 impl App {
-    // ANCHOR: run
-    /// runs the application's main loop until the user quits
+    // runs the application's main loop until the user quits
     pub fn run(&mut self, terminal: &mut tui::Tui) -> io::Result<()> {
         while !self.exit {
             terminal.draw(|frame| self.render_frame(frame))?;
@@ -41,16 +31,12 @@ impl App {
         }
         Ok(())
     }
-    // ANCHOR_END: run
 
-    // ANCHOR: render_frame
     fn render_frame(&self, frame: &mut Frame) {
         frame.render_widget(self, frame.size());
     }
-    // ANCHOR_END: render_frame
 
-    // ANCHOR: handle_events
-    /// updates the application's state based on user input
+    // updates the application's state based on user input
     fn handle_events(&mut self) -> io::Result<()> {
         match event::read()? {
             // it's important to check that the event is a key press event as
@@ -62,9 +48,7 @@ impl App {
         };
         Ok(())
     }
-    // ANCHOR_END: handle_events
 
-    // ANCHOR: handle_key_event
     fn handle_key_event(&mut self, key_event: KeyEvent) {
         match key_event.code {
             KeyCode::Char('q') => self.exit(),
@@ -73,9 +57,7 @@ impl App {
             _ => {}
         }
     }
-    // ANCHOR_END: handle_key_event
 
-    // ANCHOR: methods
     fn exit(&mut self) {
         self.exit = true;
     }
@@ -87,11 +69,8 @@ impl App {
     fn decrement_counter(&mut self) {
         self.counter -= 1;
     }
-    // ANCHOR_END: methods
 }
-// ANCHOR_END: impl App
 
-// ANCHOR: impl Widget
 impl Widget for &App {
     fn render(self, area: Rect, buf: &mut Buffer) {
         let title = Title::from(" Counter App Tutorial ".bold());
@@ -124,12 +103,9 @@ impl Widget for &App {
             .render(area, buf);
     }
 }
-// ANCHOR_END: impl Widget
 
-// ANCHOR: tests
 #[cfg(test)]
 mod tests {
-    // ANCHOR: render test
     use super::*;
 
     #[test]
@@ -158,9 +134,7 @@ mod tests {
         // compare buffers and display the differences in a more readable way
         assert_eq!(buf, expected);
     }
-    // ANCHOR_END: render test
 
-    // ANCHOR: handle_key_event test
     #[test]
     fn handle_key_event() -> io::Result<()> {
         let mut app = App::default();
@@ -176,6 +150,4 @@ mod tests {
 
         Ok(())
     }
-    // ANCHOR_END: handle_key_event test
 }
-// ANCHOR_END: tests
